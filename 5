@@ -1,0 +1,56 @@
+water = 400
+milk = 540
+coffee_beans = 120
+disposable_cups = 9
+money = 550
+
+def machine_status(water, milk, coffee_beans, disposable_cups, money):
+    print("The coffee machine has:")
+    print(water, "of water")
+    print(milk, "of milk")
+    print(coffee_beans, "of coffee_beans")
+    print(disposable_cups, "disposable_cups")
+    print(money, "of money")
+
+machine_status(water, milk, coffee_beans, disposable_cups, money)
+
+print()
+
+action = input("Write action (buy, fill, take):\n")
+
+if action == "buy":
+    coffee = int(input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:\n"))
+    if coffee == 1:
+        water = water - 250
+        coffee_beans = coffee_beans - 16
+        money = money + 4
+        disposable_cups = disposable_cups - 1
+    elif coffee == 2:
+        water = water - 350
+        milk = milk - 75
+        coffee_beans = coffee_beans - 20
+        money = money + 7
+        disposable_cups = disposable_cups - 1
+    else:
+        water = water - 200
+        milk = milk - 100
+        coffee_beans = coffee_beans - 12
+        money = money + 6
+        disposable_cups = disposable_cups - 1
+elif action == "fill":
+        water_add = int(input("Write how many ml of water do you want to add:"))
+        water = water + water_add
+        milk_add = int(input("Write how many ml of milk do you want to add:"))
+        milk = milk + milk_add
+        coffee_beans_add = int(input("Write how many grams of coffee beans do you want to add:"))
+        coffee_beans = coffee_beans + coffee_beans_add
+        disposable_cups_add = int(input("Write how many disposable cups of coffee do you want to add:"))
+        disposable_cups = disposable_cups + disposable_cups_add
+else:
+    print("I gave you $", money)
+    money = 0
+    
+print()
+
+machine_status(water, milk, coffee_beans, disposable_cups, money)
+
